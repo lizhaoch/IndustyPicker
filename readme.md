@@ -1,8 +1,8 @@
 # Industrypicker
 
-> A simple jQuery plugin for picking provinces, cities and districts of China.
+> A simple jQuery plugin for picking the Industry kinds of China.
 
-- [Homepage](https://fengyuanchen.github.io/Industrypicker)
+- [Homepage](http://lizhaoch.github.io/IndustyPicker)
 
 
 
@@ -15,7 +15,6 @@
   - [No conflict](#no-conflict)
   - [Browser support](#browser-support)
   - [License](#license)
-
 
 
 ## Main
@@ -33,10 +32,8 @@ dist/
 
 Four quick start options are available:
 
-- [Download the latest release](https://github.com/fengyuanchen/Industrypicker/archive/master.zip).
-- Clone the repository: `git clone https://github.com/fengyuanchen/Industrypicker.git`.
-- Install with [NPM](http://npmjs.org): `npm install Industrypicker`.
-- Install with [Bower](http://bower.io): `bower install Industrypicker`.
+- [Download the latest release](https://github.com/lizhaoch/IndustyPicker/archive/master.zip).
+- Clone the repository: `git clone https://github.com/lizhaoch/Industrypicker.git`.
 
 
 ### Installation
@@ -54,9 +51,10 @@ Create HTML elements:
 
 ```html
 <div><!-- container -->
-  <select></select><!-- province -->
-  <select></select><!-- city -->
-  <select></select><!-- district -->
+  <select></select><!-- 门类 -->
+  <select></select><!-- 大类 -->
+  <select></select><!-- 中类 -->
+  <select></select><!-- 小类 -->
 </div>
 ```
 
@@ -74,31 +72,9 @@ Basic
   <select></select>
   <select></select>
   <select></select>
+  <select></select>
 </div>
 ```
-
-
-Custom placeholders
-
-```html
-<div data-toggle="Industrypicker">
-  <select data-province="---- 选择省 ----"></select>
-  <select data-city="---- 选择市 ----"></select>
-  <select data-district="---- 选择区 ----"></select>
-</div>
-```
-
-
-Custom districts
-
-```html
-<div data-toggle="Industrypicker">
-  <select data-province="浙江省"></select>
-  <select data-city="杭州市"></select>
-  <select data-district="西湖区"></select>
-</div>
-```
-
 
 #### Initialize with `$.fn.Industrypicker` method
 
@@ -112,22 +88,12 @@ Custom placeholders
 
 ```js
 $('#target').Industrypicker({
-  province: '---- 所在省 ----',
-  city: '---- 所在市 ----',
-  district: '---- 所在区 ----'
+  menlei: '—— 门类 ——',
+        dalei: '—— 大类 ——',
+        zhonglei: '—— 中类 ——',
+        xiaolei: '—— 小类 ——'
 });
 ```
-
-Custom districts
-
-```js
-$('#target').Industrypicker({
-  province: '浙江省',
-  city: '杭州市',
-  district: '西湖区'
-});
-```
-
 
 [⬆ back to top](#table-of-contents)
 
@@ -155,33 +121,37 @@ Selects the city and district automatically when the province changes.
 Show placeholder (with an `<option>` element).
 
 
-### province
+### menlei门类
 
 - Type: `String`
-- Default: `—— 省 ——`
+- Default: `—— 门类 ——`
 
 Defines the initial value of province `<select>`. If it is a existing province in `Industrypicker.data.js`, it will be selected. If not, it will be used as a placeholder.
 
 
-### city
+### dalei大类
 
 - Type: `String`
-- Default: `—— 市 ——`
+- Default: `—— 大类 ——`
 
 Defines the initial value of city `<select>`. If it is a existing city under the selected province, it will be selected. If not, it will be used as a placeholder.
 
 
-### district
+### zhonglei中类
 
 - Type: `String`
-- Default: `—— 区 ——`
+- Default: `—— 中类 ——`
+
+### xiaolei小类
+
+- Type: `String`
+- Default: `—— 小类 ——`
+
+
 
 Defines the initial value of district `<select>`. If it is a existing district under the selected city, it will be selected. If not, it will be used as a placeholder.
 
-
 [⬆ back to top](#table-of-contents)
-
-
 
 ## Methods
 
@@ -210,24 +180,7 @@ If you want to remove the selected districts, you can call `reset` method first 
 
 [⬆ back to top](#table-of-contents)
 
-
-
-## No conflict
-
-If you have to use other plugin with the same namespace, just call the `$.fn.Industrypicker.noConflict` method to revert to it.
-
-```html
-<script src="other-plugin.js"></script>
-<script src="Industrypicker.js"></script>
-<script>
-  $.fn.Industrypicker.noConflict();
-  // Code that uses other plugin's "$().Industrypicker" can follow here.
-</script>
-```
-
-
-
-## Browser support
+## Browser support 浏览器支持
 
 - Chrome (latest)
 - Firefox (latest)
@@ -242,7 +195,7 @@ As a jQuery plugin, you also need to see the [jQuery Browser Support](http://jqu
 
 ## License
 
-[MIT](http://opensource.org/licenses/MIT) © [Fengyuan Chen](http://chenfengyuan.com)
+[MIT](http://opensource.org/licenses/MIT) © LIZHAOCH
 
 
 [⬆ back to top](#table-of-contents)
