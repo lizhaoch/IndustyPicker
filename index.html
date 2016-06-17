@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Industypicker by lizhaoch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Industypicker</h1>
+      <h2 class="project-tagline">新国家标准《国民经济行业分类》GBT4754-2011，数据源还不是太全，但是选择框已经准备好了。</h2>
+      <a href="https://github.com/lizhaoch/IndustyPicker" class="btn">View on GitHub</a>
+      <a href="https://github.com/lizhaoch/IndustyPicker/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/lizhaoch/IndustyPicker/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="industrypicker" class="anchor" href="#industrypicker" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Industrypicker</h1>
+
+<blockquote>
+<p>A simple jQuery plugin for picking the Industry kinds of China.</p>
+</blockquote>
+
+<ul>
+<li><a href="https://lizhaoch.github.io/Industrypicker">Homepage</a></li>
+</ul>
+
+<h2>
+<a id="table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Table of contents</h2>
+
+<ul>
+<li><a href="#main">Main</a></li>
+<li><a href="#getting-started">Getting started</a></li>
+<li><a href="#options">Options</a></li>
+<li><a href="#methods">Methods</a></li>
+<li><a href="#no-conflict">No conflict</a></li>
+<li><a href="#browser-support">Browser support</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+
+<h2>
+<a id="main" class="anchor" href="#main" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Main</h2>
+
+<pre><code>dist/
+├── Industrypicker.js          ( 7 KB)
+├── Industrypicker.data.js     (97 KB)
+</code></pre>
+
+<h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting started</h2>
+
+<h3>
+<a id="quick-start" class="anchor" href="#quick-start" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quick start</h3>
+
+<p>Four quick start options are available:</p>
+
+<ul>
+<li>
+<a href="https://github.com/lizhaoch/IndustyPicker/archive/master.zip">Download the latest release</a>.</li>
+<li>Clone the repository: <code>git clone https://github.com/lizhaoch/Industrypicker.git</code>.</li>
+</ul>
+
+<h3>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h3>
+
+<p>Include files:</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>/path/to/jquery.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;<span class="pl-c">&lt;!-- jQuery is required --&gt;</span>
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>/path/to/Industrypicker.data.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>/path/to/Industrypicker.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
+
+<p>Create HTML elements:</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span>&gt;<span class="pl-c">&lt;!-- container --&gt;</span>
+  &lt;<span class="pl-ent">select</span>&gt;&lt;/<span class="pl-ent">select</span>&gt;<span class="pl-c">&lt;!-- 门类 --&gt;</span>
+  &lt;<span class="pl-ent">select</span>&gt;&lt;/<span class="pl-ent">select</span>&gt;<span class="pl-c">&lt;!-- 大类 --&gt;</span>
+  &lt;<span class="pl-ent">select</span>&gt;&lt;/<span class="pl-ent">select</span>&gt;<span class="pl-c">&lt;!-- 中类 --&gt;</span>
+  &lt;<span class="pl-ent">select</span>&gt;&lt;/<span class="pl-ent">select</span>&gt;<span class="pl-c">&lt;!-- 小类 --&gt;</span>
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<h3>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h3>
+
+<h4>
+<a id="initialize-with-data-toggleindustrypicker-attribute" class="anchor" href="#initialize-with-data-toggleindustrypicker-attribute" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Initialize with <code>data-toggle="Industrypicker"</code> attribute</h4>
+
+<p>Basic</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">data-toggle</span>=<span class="pl-s"><span class="pl-pds">"</span>Industrypicker<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">select</span>&gt;&lt;/<span class="pl-ent">select</span>&gt;
+  &lt;<span class="pl-ent">select</span>&gt;&lt;/<span class="pl-ent">select</span>&gt;
+  &lt;<span class="pl-ent">select</span>&gt;&lt;/<span class="pl-ent">select</span>&gt;
+  &lt;<span class="pl-ent">select</span>&gt;&lt;/<span class="pl-ent">select</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<h4>
+<a id="initialize-with-fnindustrypicker-method" class="anchor" href="#initialize-with-fnindustrypicker-method" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Initialize with <code>$.fn.Industrypicker</code> method</h4>
+
+<p>Basic</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>#target<span class="pl-pds">'</span></span>).<span class="pl-en">Industrypicker</span>();</pre></div>
+
+<p>Custom placeholders</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>#target<span class="pl-pds">'</span></span>).<span class="pl-en">Industrypicker</span>({
+  menlei<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>—— 门类 ——<span class="pl-pds">'</span></span>,
+        dalei<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>—— 大类 ——<span class="pl-pds">'</span></span>,
+        zhonglei<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>—— 中类 ——<span class="pl-pds">'</span></span>,
+        xiaolei<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>—— 小类 ——<span class="pl-pds">'</span></span>
+});</pre></div>
+
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+
+<h2>
+<a id="options" class="anchor" href="#options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Options</h2>
+
+<ul>
+<li>Change the default options with <code>$().Industrypicker(options)</code>.</li>
+<li>Change the global default options with <code>$.fn.Industrypicker.setDefaults(options)</code>.</li>
+</ul>
+
+<h3>
+<a id="autoselect" class="anchor" href="#autoselect" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>autoSelect</h3>
+
+<ul>
+<li>Type: <code>Boolean</code>
+</li>
+<li>Default: <code>true</code>
+</li>
+</ul>
+
+<p>Selects the city and district automatically when the province changes.</p>
+
+<h3>
+<a id="placeholder" class="anchor" href="#placeholder" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>placeholder</h3>
+
+<ul>
+<li>Type: <code>Boolean</code>
+</li>
+<li>Default: <code>true</code>
+</li>
+</ul>
+
+<p>Show placeholder (with an <code>&lt;option&gt;</code> element).</p>
+
+<h3>
+<a id="menlei门类" class="anchor" href="#menlei%E9%97%A8%E7%B1%BB" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>menlei门类</h3>
+
+<ul>
+<li>Type: <code>String</code>
+</li>
+<li>Default: <code>—— 门类 ——</code>
+</li>
+</ul>
+
+<p>Defines the initial value of province <code>&lt;select&gt;</code>. If it is a existing province in <code>Industrypicker.data.js</code>, it will be selected. If not, it will be used as a placeholder.</p>
+
+<h3>
+<a id="dalei大类" class="anchor" href="#dalei%E5%A4%A7%E7%B1%BB" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>dalei大类</h3>
+
+<ul>
+<li>Type: <code>String</code>
+</li>
+<li>Default: <code>—— 大类 ——</code>
+</li>
+</ul>
+
+<p>Defines the initial value of city <code>&lt;select&gt;</code>. If it is a existing city under the selected province, it will be selected. If not, it will be used as a placeholder.</p>
+
+<h3>
+<a id="zhonglei中类" class="anchor" href="#zhonglei%E4%B8%AD%E7%B1%BB" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>zhonglei中类</h3>
+
+<ul>
+<li>Type: <code>String</code>
+</li>
+<li>Default: <code>—— 中类 ——</code>
+</li>
+</ul>
+
+<h3>
+<a id="xiaolei小类" class="anchor" href="#xiaolei%E5%B0%8F%E7%B1%BB" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>xiaolei小类</h3>
+
+<ul>
+<li>Type: <code>String</code>
+</li>
+<li>Default: <code>—— 小类 ——</code>
+</li>
+</ul>
+
+<p>Defines the initial value of district <code>&lt;select&gt;</code>. If it is a existing district under the selected city, it will be selected. If not, it will be used as a placeholder.</p>
+
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+
+<h2>
+<a id="methods" class="anchor" href="#methods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods</h2>
+
+<h3>
+<a id="resetdeep" class="anchor" href="#resetdeep" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>reset([deep])</h3>
+
+<ul>
+<li>
+<strong>deep</strong> (optional):
+
+<ul>
+<li>Type: <code>Boolean</code>
+</li>
+<li>Default: <code>false</code>
+</li>
+<li>Reset the selects to default states (Undo selected).</li>
+</ul>
+</li>
+</ul>
+
+<p>Reset the selects to the initial states (Undo changed).</p>
+
+<p><strong>Examples:</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">$</span>().<span class="pl-en">Industrypicker</span>(<span class="pl-s"><span class="pl-pds">'</span>reset<span class="pl-pds">'</span></span>);
+<span class="pl-en">$</span>().<span class="pl-en">Industrypicker</span>(<span class="pl-s"><span class="pl-pds">'</span>reset<span class="pl-pds">'</span></span>, <span class="pl-c1">true</span>);</pre></div>
+
+<h3>
+<a id="destroy" class="anchor" href="#destroy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>destroy()</h3>
+
+<p>Destroy the Industrypicker instance, but keep the selected districts.</p>
+
+<p>If you want to remove the selected districts, you can call <code>reset</code> method first and then call this method.</p>
+
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+
+<h2>
+<a id="browser-support-浏览器支持" class="anchor" href="#browser-support-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%94%AF%E6%8C%81" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Browser support 浏览器支持</h2>
+
+<ul>
+<li>Chrome (latest)</li>
+<li>Firefox (latest)</li>
+<li>Safari (latest)</li>
+<li>Opera (latest)</li>
+<li>Edge (latest)</li>
+<li>Internet Explorer 8+</li>
+</ul>
+
+<p>As a jQuery plugin, you also need to see the <a href="http://jquery.com/browser-support/">jQuery Browser Support</a>.</p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p><a href="http://opensource.org/licenses/MIT">MIT</a> © LIZHAOCH</p>
+
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/lizhaoch/IndustyPicker">Industypicker</a> is maintained by <a href="https://github.com/lizhaoch">lizhaoch</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
